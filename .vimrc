@@ -10,11 +10,18 @@ set smartindent
 " turn on line numbers
 set number
 
-set wildmenu
+syntax enable
 set background=dark
 
+" force the termina to 256 colors
+set t_Co=256
+colorscheme torte
+
+set mouse=a
+
+set wildmenu
+
 filetype indent on
-syntax on
 
 " highlight trailing whitespace characters
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
