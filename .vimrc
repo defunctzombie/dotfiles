@@ -21,6 +21,8 @@ set mouse=a
 
 set wildmenu
 
+set backspace=indent,eol,start
+
 filetype indent on
 
 " highlight trailing whitespace characters
