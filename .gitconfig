@@ -2,10 +2,8 @@
     whitespace = trailing-space,space-before-tab
 
 [user]
-# I work with multiple repos with different email accounts
-# this makes git complain when the repo hasn't set an email
-#	email = shtylman@gmail.com
-#	name = Roman Shtylman
+	email = shtylman@gmail.com
+	name = Roman Shtylman
 
 [color]
 	status = auto
