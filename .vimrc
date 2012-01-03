@@ -36,3 +36,6 @@ autocmd BufWinLeave * call clearmatches()
 
 " don't use spaces for makefiles
 autocmd FileType make set noexpandtab
+
+" don't indent c++ namespaces
+set cino=N-s
