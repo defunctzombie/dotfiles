@@ -3,12 +3,9 @@ set nocompatible
 set expandtab
 set tabstop=4
 set shiftwidth=4
-
 set autoindent
 set smartindent
-
-" turn on line numbers
-set number
+set smarttab
 
 syntax enable
 set background=dark
@@ -17,25 +14,33 @@ set background=dark
 set t_Co=256
 colorscheme torte
 
+" mice are for humans
 set mouse=a
 
-set wildmenu
+set number                      "Line numbers are good
+set backspace=indent,eol,start  "Allow backspace in insert mode
 
-set backspace=indent,eol,start
+set noswapfile
+set nobackup
+set nowb
 
-filetype indent on
+set wildmode=list:longest
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 
-" highlight trailing whitespace characters
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
+" display tabs and trailing spaces visually
+set list listchars=tab:\ \ ,trail:·
+highlight SpecialKey ctermbg=red guibg=red
 
 " don't use spaces for makefiles
 autocmd FileType make set noexpandtab
 
+"Reload files changed outside vim
+set autoread
+
 " don't indent c++ namespaces
 set cino=N-s
+
+filetype plugin on
+filetype indent on
