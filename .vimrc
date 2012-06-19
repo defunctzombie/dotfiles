@@ -42,5 +42,12 @@ set autoread
 " don't indent c++ namespaces
 set cino=N-s
 
+" use F2 to toggle paste mode
+" pastemode doesn't indent pasted code
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
 filetype plugin on
 filetype indent on
+
