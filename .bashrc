@@ -98,4 +98,5 @@ fi
 
 export EDITOR=vim
 
-export PATH=$HOME/local/node/bin:$PATH
+source $HOME/.nvm/nvm.sh
+[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
