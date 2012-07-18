@@ -10,7 +10,7 @@ set smarttab
 syntax enable
 set background=dark
 
-" force the termina to 256 colors
+" force the terminal to 256 colors
 set t_Co=256
 colorscheme torte
 
@@ -51,3 +51,18 @@ set showmode
 filetype plugin on
 filetype indent on
 
+" automatically save on loosing focus
+autocmd FocusLost silent! wall
+
+" automatically save when switching buffers and/or exiting vim
+:set autowriteall
+
+" spell checking
+:set spell spelllang=en_us
+
+" make yank and paste use the clipboard
+set clipboard=unnamed
+
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable
