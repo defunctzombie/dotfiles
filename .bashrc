@@ -81,10 +81,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-if [ -f /opt/local/etc/bash_completion ] && ! shopt -oq posix; then
-    . /opt/local/etc/bash_completion
-fi
-
 # osx stuff
 if [ -d /opt/local/ ]; then
     export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/libexec/gnubin:$PATH
@@ -92,7 +88,6 @@ if [ -d /opt/local/ ]; then
 
     export LDFLAGS='-L/opt/local/lib'
     export CPPFLAGS='-I/opt/local/include'
-    export LD_LIBRARY_PATH=/opt/local/lib
     export LD_INCLUDE_PATH=/opt/local/include
 fi
 
@@ -100,3 +95,21 @@ export EDITOR=vim
 
 source $HOME/.nvm/nvm.sh
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
+
+# bash-completion
+if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+    . /opt/local/etc/profile.d/bash_completion.sh
+fi
+
+function github-pageify() {
+    git checkout --orphan gh-pages
+    git rm --cached -r .
+    touch index.html
+    git add index.html
+    git commit -m "initial"
+    git push origin gh-pages
+}
+
+export GEM_HOME=$HOME/.gems
+export GEM_PATH=$HOME/.gems
+export PATH=$PATH:$GEM_HOME/bin
