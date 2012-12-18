@@ -44,6 +44,8 @@ if !exists("javascript_ignore_javaScriptdoc")
   "" syntax coloring for javadoc comments (HTML)
   "syntax include @javaHtml <sfile>:p:h/html.vim
   "unlet b:current_syntax
+  "
+  syntax region javaScriptDocCommentTrip      matchgroup=javaScriptComment start=+\/\/\/+  end=+$+ contains=javaScriptDocTags,javaScriptCommentTodo,javaScriptCvsTag,@javaScriptHtml,@Spell fold
 
   syntax region javaScriptDocComment      matchgroup=javaScriptComment start="/\*\*\s*"  end="\*/" contains=javaScriptDocTags,javaScriptCommentTodo,javaScriptCvsTag,@javaScriptHtml,@Spell fold
 
