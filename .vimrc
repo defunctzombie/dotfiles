@@ -9,10 +9,7 @@ set smarttab
 
 syntax enable
 set background=dark
-
-" force the terminal to 256 colors
-set t_Co=256
-colorscheme torte
+colorscheme solarized
 
 " mice are for humans
 set mouse=a
