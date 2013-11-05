@@ -52,10 +52,10 @@ filetype indent on
 autocmd FocusLost silent! wall
 
 " automatically save when switching buffers and/or exiting vim
-:set autowriteall
+set autowriteall
 
 " spell checking
-:set spell spelllang=en_us
+set spell spelllang=en_us
 
 " make yank and paste use the clipboard
 set clipboard=unnamed
@@ -63,3 +63,5 @@ set clipboard=unnamed
 set foldmethod=indent   "fold based on indent
 set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable
+
+autocmd BufEnter * :syntax sync fromstart
