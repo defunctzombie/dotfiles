@@ -81,25 +81,21 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# osx stuff
-if [ -d /opt/local/ ]; then
-    export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/libexec/gnubin:$PATH
-    export MANPATH=/opt/local/share/man:$MANPATH
+export EDITOR=vim
 
-    export LDFLAGS='-L/opt/local/lib'
-    export CPPFLAGS='-I/opt/local/include'
-    export LD_INCLUDE_PATH=/opt/local/include
+brew_prefix=$(brew --prefix)
+
+# homebrew bash completion
+if [ -f $brew_prefix/Library/Contributions/brew_bash_completion.sh ]; then
+    . $brew_prefix/Library/Contributions/brew_bash_completion.sh
 fi
 
-export EDITOR=vim
+if [ -f $brew_prefix/etc/bash_completion ]; then
+    . $brew_prefix/etc/bash_completion
+fi
 
 source $HOME/.nvm/nvm.sh
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
-
-# bash-completion
-if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
-    . /opt/local/etc/profile.d/bash_completion.sh
-fi
 
 function github-pageify() {
     git checkout --orphan gh-pages
@@ -112,4 +108,13 @@ function github-pageify() {
 
 export GEM_HOME=$HOME/.gems
 export GEM_PATH=$HOME/.gems
-export PATH=$PATH:$GEM_HOME/bin
+export PATH=/usr/local/bin:$PATH:$GEM_HOME/bin
+
+function npm-git-publish() {
+    npm publish
+    git push
+    git push --tags
+}
+
+# added by travis gem
+[ -f /Users/shtylman/.travis/travis.sh ] && source /Users/shtylman/.travis/travis.sh
