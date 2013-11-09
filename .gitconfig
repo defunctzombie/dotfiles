@@ -1,21 +1,24 @@
 [core]
+    editor = vim
     whitespace = trailing-space,space-before-tab
+    excludesfile = ~/.gitexclude #global exclude file
 
 [user]
-	email = shtylman@gmail.com
-	name = Roman Shtylman
+    email = shtylman@gmail.com
+    name = Roman Shtylman
 
 [color]
-	status = auto
-	branch = auto
-	diff = auto
+    status = auto
+    branch = auto
+    diff = auto
+    ui = auto
 
 [alias]
-	st = status
-	br = branch
-	ci = commit
+    st = status
+    br = branch
+    ci = commit
     co = checkout
     stno = status -uno
 
 [push]
-	default = upstream
+    default = simple

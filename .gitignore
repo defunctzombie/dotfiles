@@ -1,1 +1,2 @@
-*
+# ignore anything that is not a dotfile
+[a-zA-Z]*
