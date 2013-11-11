@@ -103,3 +103,6 @@ autocmd BufEnter * :syntax sync fromstart
 
 " on file open, set autoindentation
 autocmd BufEnter * :DetectIndent
+
+" turn off stupid json quote conceal bs from elzr/vim-json plugin
+let g:vim_json_syntax_conceal = 0
