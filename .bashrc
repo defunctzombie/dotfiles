@@ -14,7 +14,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # set higher ulimit
 # we have modern computers
-ulimit -n 70000
+ulimit -n 10000
 
 ## setup bash prompt
 
