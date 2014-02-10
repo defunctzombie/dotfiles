@@ -23,8 +23,9 @@ Bundle 'tpope/vim-markdown'
 Bundle 'suan/vim-instant-markdown'
 Bundle 'groenewege/vim-less'
 Bundle 'elzr/vim-json'
-Bundle 'wavded/vim-stylus'
+Bundle 'defunctzombie/vim-stylus'
 Bundle 'saltstack/salt-vim'
+Bundle 'kelan/gyp.vim'
 
 " put this after loading any bundles
 filetype plugin indent on     " required!
@@ -76,6 +77,8 @@ set autoread
 
 " don't indent c++ namespaces
 set cino=N-s
+" don't indent access specifiers (public, private)
+set cino+=g0
 
 " use F2 to toggle paste mode
 " pastemode doesn't indent pasted code
