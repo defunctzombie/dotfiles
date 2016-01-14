@@ -13,10 +13,10 @@ GIT_DIR=$HOME/.dotfiles/.git GIT_WORK_TREE=$HOME git checkout -- bin/dotfiles
 
 See how your current homedir differs from expected dotfiles setup
 ```shell
-dotfiles status
+bin/dotfiles status
 ```
 
 To put dotfiles in $HOME into same state as repo dotfiles run this command. WARNING it will override any existing files. So make sure you do `dotfiles diff` first to see if you care.
 ```shell
-dotfiles reset HEAD --hard
+bin/dotfiles reset HEAD --hard
 ```
