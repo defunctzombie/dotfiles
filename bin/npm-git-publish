@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# publish npm module and push the tags to git
+# I am lazy
+
+npm publish
+git push
+git push --tags

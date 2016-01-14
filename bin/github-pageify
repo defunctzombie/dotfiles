@@ -1,0 +1,8 @@
+#!/bin/bash
+
+git checkout --orphan gh-pages
+git rm --cached -r .
+touch index.html
+git add index.html
+git commit -m "initial"
+git push -u origin gh-pages

@@ -1,22 +1,28 @@
 # bash command aliases
 [[ -r ~/.bash_aliases ]] && . ~/.bash_aliases
 
-# load brew installed bash completions
-brew_prefix=$(brew --prefix)
-[[ -r $brew_prefix/etc/bash_completion ]] && . $brew_prefix/etc/bash_completion
-
 ## nvm load and optional completion
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
+# load brew installed bash completions
+brew_prefix=$(brew --prefix)
+[[ -r $brew_prefix/etc/bash_completion ]] && . $brew_prefix/etc/bash_completion
+
 export EDITOR=vim
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+PATH=$HOME/bin:/usr/local/bin:$PATH
+PATH=$HOME/sdk/android/sdk/tools:$HOME/sdk/android/sdk/platform-tools:$PATH
+PATH=$HOME/tmp/depot_tools:$PATH
+export PATH
 
 # set higher ulimit
 # we have modern computers
 ulimit -n 10000
 
 ## setup bash prompt
+
+function todo() { vi $HOME/todo; }
 
 function EXT_COLOR () { echo -ne "\[\033[38;5;$1m\]"; }
 c_black='\[\e[30m\]'
@@ -37,3 +43,21 @@ c_orange=$(EXT_COLOR 172)
 source ~/.git-prompt.sh
 export PS1="💀 $c_default($c_cyan\W$c_default)$c_green\$(__git_ps1 \"(%s)\")$c_orange$ $c_default"
 
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+complete -C aws_completer aws
+
+# after brew install go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+# boot2docker
+export DOCKER_HOST=tcp://boot2docker:2376
+export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+
+## initialize docker env vars for docker CLI
+## use the redirect because boot2docker spews shit onto stderr
+#$(boot2docker shellinit 2> /dev/null)

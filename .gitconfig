@@ -1,7 +1,7 @@
 [core]
     editor = vim
     whitespace = trailing-space,space-before-tab
-    excludesfile = ~/.gitexclude #global exclude file
+    excludesfile = ~/.gitexclude
 
 [user]
     email = shtylman@gmail.com
@@ -15,6 +15,7 @@
 
 [alias]
     st = status
+    stu = status -uno
     br = branch
     ci = commit
     co = checkout

@@ -17,15 +17,24 @@ Bundle 'altercation/vim-colors-solarized'
 " auto indentation detecting
 Bundle 'ciaranm/detectindent'
 " better js syntax coloring
-Bundle 'jelera/vim-javascript-syntax'
+"Bundle 'jelera/vim-javascript-syntax'
+Bundle 'pangloss/vim-javascript'
 
 Bundle 'tpope/vim-markdown'
-Bundle 'suan/vim-instant-markdown'
 Bundle 'groenewege/vim-less'
 Bundle 'elzr/vim-json'
 Bundle 'defunctzombie/vim-stylus'
 Bundle 'saltstack/salt-vim'
 Bundle 'kelan/gyp.vim'
+Bundle 'editorconfig/editorconfig-vim'
+Bundle "ekalinin/Dockerfile.vim"
+Bundle 'markcornick/vim-vagrant'
+Bundle 'chase/vim-ansible-yaml'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'wincent/command-t'
+Bundle 'nginx.vim'
+Bundle 'fatih/vim-go'
+Bundle 'mxw/vim-jsx'
 
 " put this after loading any bundles
 filetype plugin indent on     " required!
@@ -105,7 +114,11 @@ set nofoldenable
 autocmd BufEnter * :syntax sync fromstart
 
 " on file open, set autoindentation
-autocmd BufEnter * :DetectIndent
+autocmd BufReadPost * :DetectIndent
 
 " turn off stupid json quote conceal bs from elzr/vim-json plugin
 let g:vim_json_syntax_conceal = 0
+
+" https://github.com/mxw/vim-jsx
+" enable js files to use jsx indentation
+let g:jsx_ext_required = 0

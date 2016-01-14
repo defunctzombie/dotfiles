@@ -1,0 +1,29 @@
+#!/bin/bash
+
+## build a docker image with latest git tag and push to registry
+## usage: quay-build quay.io/org/repo
+##
+## this will build and tag using the current repository latest git version
+## git version is detected via git rev-parse
+
+set -e
+
+COMMIT=$(git rev-parse HEAD | cut -c1-7)
+
+TAG=$1:$COMMIT
+read -r -p "do you wish to build and push . as $TAG [y/N]" response
+
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
+then
+    echo "building"
+else
+    echo "exit"
+    exit
+fi
+
+docker build -t $TAG .
+
+echo "pushing $TAG"
+docker push $TAG
+
+echo "done"
