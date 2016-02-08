@@ -20,3 +20,9 @@ To put dotfiles in $HOME into same state as repo dotfiles run this command. WARN
 ```shell
 bin/dotfiles reset HEAD --hard
 ```
+
+Install [Vundle](https://github.com/VundleVim/Vundle.vim)
+
+```shell
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
