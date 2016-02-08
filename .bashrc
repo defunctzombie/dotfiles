@@ -53,11 +53,5 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-# boot2docker
-export DOCKER_HOST=tcp://boot2docker:2376
-export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
-
-## initialize docker env vars for docker CLI
-## use the redirect because boot2docker spews shit onto stderr
-#$(boot2docker shellinit 2> /dev/null)
+# init vars for docker cli tool
+eval $(docker-machine env dev)
