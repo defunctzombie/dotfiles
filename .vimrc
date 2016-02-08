@@ -6,37 +6,39 @@
 set nocompatible              " be iMproved
 filetype off                  " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 " auto indentation detecting
-Bundle 'ciaranm/detectindent'
+Plugin 'ciaranm/detectindent'
 " better js syntax coloring
-"Bundle 'jelera/vim-javascript-syntax'
-Bundle 'pangloss/vim-javascript'
+"Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
 
-Bundle 'tpope/vim-markdown'
-Bundle 'groenewege/vim-less'
-Bundle 'elzr/vim-json'
-Bundle 'defunctzombie/vim-stylus'
-Bundle 'saltstack/salt-vim'
-Bundle 'kelan/gyp.vim'
-Bundle 'editorconfig/editorconfig-vim'
-Bundle "ekalinin/Dockerfile.vim"
-Bundle 'markcornick/vim-vagrant'
-Bundle 'chase/vim-ansible-yaml'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'wincent/command-t'
-Bundle 'nginx.vim'
-Bundle 'fatih/vim-go'
-Bundle 'mxw/vim-jsx'
+Plugin 'tpope/vim-markdown'
+Plugin 'groenewege/vim-less'
+Plugin 'elzr/vim-json'
+Plugin 'defunctzombie/vim-stylus'
+Plugin 'saltstack/salt-vim'
+Plugin 'kelan/gyp.vim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'markcornick/vim-vagrant'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'wincent/command-t'
+Plugin 'nginx.vim'
+Plugin 'fatih/vim-go'
+Plugin 'mxw/vim-jsx'
+
 
 " put this after loading any bundles
+call vundle#end()
 filetype plugin indent on     " required!
 " done setup for vundle
 
