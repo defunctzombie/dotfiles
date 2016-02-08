@@ -27,7 +27,7 @@ then
     exit 1
 fi
 
-giturl=${giturl/git\@github\.cbhq\.net\:/https://github.cbhq.net/}
+giturl=${giturl/git\@github\.com\:/https://github.com/}
 giturl=${giturl%\.git}
 
 if [ -z "$2" ]
