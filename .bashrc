@@ -5,9 +5,12 @@
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
+
 # load brew installed bash completions
-brew_prefix=$(brew --prefix)
-[[ -r $brew_prefix/etc/bash_completion ]] && . $brew_prefix/etc/bash_completion
+if [[ $(type -P brew) ]]; then
+    brew_prefix=$(brew --prefix)
+    [[ -r $brew_prefix/etc/bash_completion ]] && . $brew_prefix/etc/bash_completion
+fi
 
 export EDITOR=vim
 
@@ -54,4 +57,4 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 # init vars for docker cli tool
-eval $(docker-machine env dev)
+[[ $(type -P docker-machine) ]] && eval $(docker-machine env dev)
