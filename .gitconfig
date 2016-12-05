@@ -20,6 +20,7 @@
     ci = commit
     co = checkout
     stno = status -uno
+    diffs = diff --staged
 
 [push]
     default = simple

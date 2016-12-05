@@ -5,6 +5,8 @@
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
+[[ -r /etc/bash_completion ]] && . /etc/bash_completion
+
 
 # load brew installed bash completions
 if [[ $(type -P brew) ]]; then
@@ -44,7 +46,13 @@ c_orange=$(EXT_COLOR 172)
 # \w - cwd
 # \W - current dir
 source ~/.git-prompt.sh
-export PS1="💀 $c_default($c_cyan\W$c_default)$c_green\$(__git_ps1 \"(%s)\")$c_orange$ $c_default"
+if [ -n "$SSH_CLIENT" ]; then
+    # via ssh
+    export PS1="💀 (\H)$c_default($c_cyan\W$c_default)$c_green\$(__git_ps1 \"(%s)\")$c_orange$ $c_default"
+else
+    # local
+    export PS1="💀 $c_default($c_cyan\W$c_default)$c_green\$(__git_ps1 \"(%s)\")$c_orange$ $c_default"
+fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"

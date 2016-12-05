@@ -35,7 +35,10 @@ Plugin 'wincent/command-t'
 Plugin 'nginx.vim'
 Plugin 'fatih/vim-go'
 Plugin 'mxw/vim-jsx'
-
+"Plugin 'jeaye/color_coded'
+Plugin 'hashivim/vim-terraform'
+"Plugin 'octol/vim-cpp-enhanced-highlight'
+"Plugin 'rdnetto/YCM-Generator'
 
 " put this after loading any bundles
 call vundle#end()
@@ -86,11 +89,6 @@ autocmd FileType make set noexpandtab
 " Reload files changed outside vim
 set autoread
 
-" don't indent c++ namespaces
-set cino=N-s
-" don't indent access specifiers (public, private)
-set cino+=g0
-
 " use F2 to toggle paste mode
 " pastemode doesn't indent pasted code
 nnoremap <F2> :set invpaste paste?<CR>
@@ -124,3 +122,8 @@ let g:vim_json_syntax_conceal = 0
 " https://github.com/mxw/vim-jsx
 " enable js files to use jsx indentation
 let g:jsx_ext_required = 0
+
+map <C-K> :pyf /usr/share/vim/addons/syntax/clang-format-3.6.py<cr>
+imap <C-K> <c-o>:pyf /usr/share/vim/addons/syntax/clang-format-3.6.py<cr>
+
+autocmd BufRead,BufNewFile *.launch setfiletype xml
